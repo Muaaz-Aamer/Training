@@ -1,2 +1,4 @@
 # Training
-Training of Muaaz and Saboor
+Training of Saboor at devsinc
+This training contains notes and projects developed during training.
+

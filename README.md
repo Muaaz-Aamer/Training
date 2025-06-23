@@ -1,4 +1,3 @@
 # Training
-Training of Saboor at devsinc
-This training contains notes and projects developed during training.
-
+Training of Saboor at Devsinc.
+Contains notes and projects made during training.

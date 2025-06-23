@@ -1,0 +1,39 @@
+﻿Github learning
+
+
+* Git add. -> move changed or modified files into staging area.
+* Git commit -m “ “ -> moves files from staging area to repository.
+* Git restore -- staged file1.txt -> removes file from staging area hence cannot be committed.
+* Git reset file.txt  -> can also unstage files used in previous versions of git
+* Git .ignore files used for storing files that you do not want to be tracked they can also store files which will not be added to your github repository.
+* Git branch to check all the branches and on which branch you are shown by asterisk.
+* Git checkout <branch-name> to move to that branch.
+* Git merge <branch-name> to merge that branch with your current branch.
+* To resolve conflict when merging open the conflicting file and write the data that you want or want to keep and then stage that conflicting file and commit this will resolve issue.
+* Git stash -> used to stash or save your messy work without committing it, you can then work on other branch or things then come back to your work and use “git stash pop” to go back to your work and continue working on it. “git stash -u” saves untracked and unstaged files as well. “Git stash -a” stores even ignored untracked files. Its safer to run “git stash apply” instead of “git stash pop” as it does not remove stashed data from the stash list.
+* Untracked files may be newly added files, unstaged files are the previously added but now modified files.
+* If initially a file is being tracked and you add it to .gitignore and do not want it to be tracked anymore you use git rm <filename>. This will remove the file from git and also your local file directory. But if you want to keep it in local use “git rm –cached <filename>” there are double-.
+* We can rename a file name in staging that it is in add by “git mv filename newfilename” this will change the filename in staging and then commit.
+* If you want to make changes in last commit `git commit --amend` us. 
+* git commit --amend --no-edit --date="1987-08-03" used to change the date of your last commit.
+* Git rebase used to replay commits from one branch to another. It can be interactive as well with git rebase -i HEAD - 3 which makes us edit the last 3 commits. HEAD references to current commit we are working on.  ‘^’ is used to go to parents ‘^^’ means 2 parents above. After running git rebase we have to change pick with edit on the file that we want to change. run git rebase –continue command to go back and git rebase –abort if you want to exit without changes
+* git reflog records every move your HEAD and branch tips make—even those that change history, like rebase, reset, or commit --amend.This includes:
+   * commits
+
+   * branch switches
+
+   * rebases
+
+   * merges
+
+   * resets
+
+   * hard deletes
+   * The main point is that by running git reflog you can view all previous comments.     Then by reset hard you can change your current status to that commit or use checkout to move to that branch.
+
+
+   * Git update –index argos is used to update files in index(staging area) without using working directory “git update-index --chmod=+x script.sh” is used to change the file to executable in staging area then commit it.
+   * git add –patch file.txt to divide a single commit into two commits for example if you have made many changes in a single file but now you want to commit changes in two commits so you can split using “s” then select “y” or “n” on which changes you want to commit first and then later. Then git commit -m “task1” for first commit and git commit -am “task2” for second commit.
+   * git rebase –onto <newbase> <upstream> <branch>  (onto <newbase> where you want to rebase or commit) (upstream : where it should look for commits) (branch : which branch commits you want to get).
+   * Git reset –hard C: moves your commit to previous commit C and all the history is lost. Git revert C preserves the history and deletes the commit C from you working directory and preserves the rest so removes that commit.
+   *     git tag <tag_name> <commit_id> creates a lightweight tag,     git tag -a <tag_name> -m "Your tag message" <commit_id> creates an annotated tag for a commit.

@@ -1,0 +1,23 @@
+.heading{
+    text-align: center;
+}
+div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+input{
+    margin: 4px;
+    padding: 10px;
+    width: 200px;
+}
+button{
+    background-color:#E2BEBE;
+    margin: 4px;
+    padding: 10px;
+    width: 200px;
+    color: white;
+    border: none;
+}

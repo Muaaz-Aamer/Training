@@ -1,0 +1,48 @@
+body{
+    background-color: antiquewhite;
+
+}
+.heading{
+    background-image: url("../images/globe-2.jpg");
+    /*background-size: 50% 50%;*/
+    background-size: cover;
+    height: 500px;
+    text-align: center;
+    color: antiquewhite;
+}
+.title{
+    font-size: 100px;
+}
+button{
+    background-color: blueviolet;
+    color: whitesmoke;
+    font-size: x-large;
+}
+
+.user_input{
+    border-radius: 10px;
+    font-size: larger;
+}
+
+.countries{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+
+}
+
+.country{
+    background-image: url("../images/map_image.jpg");
+    height: 100px;
+    background-size: cover;
+    flex: 1 0 21%; /* grow, don’t shrink, base 21% width (~5 per row with gap) */
+    height: 200px;  /* fixed height for equal block height */
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

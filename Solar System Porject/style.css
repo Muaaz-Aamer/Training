@@ -1,0 +1,19 @@
+body{
+    background-image: url('./images/galaxy.gif');
+    background-color: black;
+    text-align: center;
+
+}
+#heading{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:50px
+}
+#print{
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:30px
+}
+.formstyle{
+    font-size: 20px;
+}

@@ -23,7 +23,7 @@ const topPopulatedCountries = countries_data
   .slice(0, 10);
 
 const renderHorizontalBarGraph = (dataArray, titleText, keyName) => {
-  const stat = document.getElementById("stat");
+  const stat = document.querySelector(".graph-wrapper");
   const graphTitle = document.querySelector(".graph-title");
 
   graphTitle.textContent = titleText;
@@ -31,7 +31,7 @@ const renderHorizontalBarGraph = (dataArray, titleText, keyName) => {
 
   const maxValue = dataArray[0][keyName];
 
-  for (const data of dataArray) {
+  dataArray.forEach((data) => {
     const row = document.createElement("div");
     row.className = "bar-container";
 
@@ -53,7 +53,7 @@ const renderHorizontalBarGraph = (dataArray, titleText, keyName) => {
     row.appendChild(valueBox);
 
     stat.appendChild(row);
-  }
+  });
 };
 
 let populationBtn = document.querySelector(".population");

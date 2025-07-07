@@ -5,11 +5,11 @@
 #countries{
     text-align: center;
 }
-h1{
+.heading{
     color: orange;
     font-size: 80px;
 }
-button{
+.btn{
     background-color: orange;
     color: black;
     font-size: 20px;

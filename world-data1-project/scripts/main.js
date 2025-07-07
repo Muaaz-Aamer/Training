@@ -17,16 +17,12 @@ const topLang = Object.entries(langCount)
   .sort((a, b) => b.count - a.count)
   .slice(0, 10);
 
-console.log(topLang);
-
 const topPopulatedCountries = countries_data
   .map((country) => ({ name: country.name, population: country.population }))
   .sort((a, b) => b.population - a.population)
   .slice(0, 10);
 
-console.log(topPopulatedCountries);
-
-function renderHorizontalBarGraph(dataArray, titleText, keyName) {
+const renderHorizontalBarGraph = (dataArray, titleText, keyName) => {
   const stat = document.getElementById("stat");
   const graphTitle = document.querySelector(".graph-title");
 
@@ -58,10 +54,10 @@ function renderHorizontalBarGraph(dataArray, titleText, keyName) {
 
     stat.appendChild(row);
   }
-}
+};
 
-let btn = document.querySelector(".population");
-btn.addEventListener("click", () => {
+let populationBtn = document.querySelector(".population");
+populationBtn.addEventListener("click", () => {
   renderHorizontalBarGraph(
     topPopulatedCountries,
     "Top 10 Most Populated Countries",
@@ -69,7 +65,7 @@ btn.addEventListener("click", () => {
   );
 });
 
-let btn1 = document.querySelector(".languages");
-btn1.addEventListener("click", () => {
+let languagesBtn = document.querySelector(".languages");
+languagesBtn.addEventListener("click", () => {
   renderHorizontalBarGraph(topLang, "Top 10 Most Spoken Languages", "count");
 });

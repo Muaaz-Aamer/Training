@@ -9,11 +9,13 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
 	<link rel="stylesheet" href="./css/style.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<script type="module" src="./scripts/main.js" defer></script>
+
 </head>
 
 <body>
 	<header id="countries">
-		<h1>World Countries Data</h1>
+		<h1 class = "heading">World Countries Data</h1>
 		<h2>Currently we have 250 countries</h2>
 		<p class="subtitle"></p>
 		<p class="feedback"></p>
@@ -22,22 +24,15 @@
 
 		<div class="wrapper">
 			<div class="graph-buttons">
-				<button class="population">Population</button>
-				<button class="languages">Languages</button>
+				<button class="population btn">Population</button>
+				<button class="languages btn">Languages</button>
 			</div>
-			
-			<!-- <canvas id="myChart" style="width:100%;max-width:600px; height:500px"></canvas> -->
-
 			<h4 class="graph-title"></h4>
 			<div class="graphs">
 				<div class="graph-wrapper" id="stat"></div>
 			</div>
 		</div>
 	</main>
-
-
-	<!-- <script src="./data/countries_data.js"></script> -->
-	<script type="module" src="./scripts/main.js"></script>
 
 
 </body>

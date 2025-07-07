@@ -1,12 +1,12 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #ffe5b4; /* light peach */
+  background-color: #ffe5b4;
   padding: 40px;
   margin: 0;
   text-align: center;
 }
 
-h1 {
+#main-heading {
   margin-bottom: 30px;
 }
 
@@ -19,17 +19,17 @@ h1 {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  flex-wrap: wrap; /* optional: allows wrapping on small screens */
+  flex-wrap: wrap;
 }
 
-.data {
+.input-field {
   padding: 10px;
   border: 1px solid #f5caa7;
   border-radius: 5px;
   background-color: #fff;
 }
 
-.data::placeholder {
+.input-field::placeholder {
   color: #b36b00;
 }
 
@@ -48,30 +48,36 @@ button:hover {
   background-color: #e6956b;
 }
 
+#player-list {
+  margin-top: 20px;
+}
+
 .row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #f0a76c; /* darker peach */
+  background-color: #f0a76c;
   padding: 10px 20px;
   margin: 10px 0;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   color: #fff;
+  flex-wrap: wrap;
 }
 
 .row p {
   margin: 0 10px;
   font-weight: bold;
-  min-width: 100px; /* keeps spacing even */
+  min-width: 100px;
   text-align: center;
 }
+
 .pButton {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: none;
-  background-color: #e74c3c; /* reddish color */
+  background-color: #e74c3c;
   color: white;
   font-size: 14px;
   font-weight: bold;
@@ -79,7 +85,7 @@ button:hover {
   margin-left: 10px;
   display: flex;
   align-items: center;
-  justify-content: center; /* centers the text */
+  justify-content: center;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 

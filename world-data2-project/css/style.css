@@ -13,7 +13,7 @@ body{
 .title{
     font-size: 100px;
 }
-button{
+.btn{
     background-color: blueviolet;
     color: whitesmoke;
     font-size: x-large;
@@ -45,4 +45,8 @@ button{
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+.btn2{
+    margin-bottom: 2rem;
+    
 }

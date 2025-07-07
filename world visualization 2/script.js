@@ -1,58 +1,57 @@
-let startingWord = 0;
-let searchWith = 0;
+let isSearchByStartingWord = false;
+let isSearchByAnyWord = false;
 
-const choice1 = document.querySelector("#choice1");
-const choice2 = document.querySelector("#choice2");
-const inputed = document.querySelector("#inputed");
-const graph = document.querySelector("#countries");
+const btnSearchByStart = document.querySelector("#btn-starting-word");
+const btnSearchByInclude = document.querySelector("#btn-contains-word");
+const searchInput = document.querySelector("#country-search-input");
+const countryListContainer = document.querySelector("#country-list");
 
-choice1.addEventListener("click", () => {
-    startingWord = 1;
-    searchWith = 0;
-    inputed.value = "";
-    graph.innerHTML = ""; 
+btnSearchByStart.addEventListener("click", () => {
+  isSearchByStartingWord = true;
+  isSearchByAnyWord = false;
+  searchInput.value = "";
+  countryListContainer.innerHTML = "";
 });
 
-choice2.addEventListener("click", () => {
-    searchWith = 1;
-    startingWord = 0;
-    inputed.value = "";
-    graph.innerHTML = ""; // clear output
+btnSearchByInclude.addEventListener("click", () => {
+  isSearchByAnyWord = true;
+  isSearchByStartingWord = false;
+  searchInput.value = "";
+  countryListContainer.innerHTML = "";
 });
 
-function createBox(nameList) {
-    return nameList.map((country) => {
-        const box = document.createElement("div");
-        box.className = "country-box";
-        box.innerText = country.toUpperCase();
-        return box;
-    });
+function generateCountryBoxes(filteredCountries) {
+  return filteredCountries.map((country) => {
+    const box = document.createElement("div");
+    box.className = "country-box";
+    box.innerText = country.toUpperCase();
+    return box;
+  });
 }
 
+searchInput.addEventListener("input", (event) => {
+  const userInput = event.target.value.toLowerCase();
+  countryListContainer.innerHTML = "";
 
-inputed.addEventListener("input", (e) => {
-    const input = e.target.value.toLowerCase();
-    graph.innerHTML = "";
+  if (!userInput) return;
 
-    if (!input) return;
+  let matchedCountries = [];
 
-    let filtered = [];
+  if (isSearchByStartingWord) {
+    matchedCountries = countries.filter(country =>
+      country.toLowerCase().startsWith(userInput)
+    );
+  } else if (isSearchByAnyWord) {
+    matchedCountries = countries.filter(country =>
+      country.toLowerCase().includes(userInput)
+    );
+  }
 
-    if (startingWord === 1) {
-        filtered = countries.filter(country =>
-            country.toLowerCase().startsWith(input)
-        );
-    } else if (searchWith === 1) {
-        filtered = countries.filter(country =>
-            country.toLowerCase().includes(input)
-        );
-    }
+  if (matchedCountries.length === 0) {
+    countryListContainer.innerHTML = "<p>No matching countries found.</p>";
+    return;
+  }
 
-    if (filtered.length === 0) {
-        graph.innerHTML = "<p>No matching countries found.</p>";
-        return;
-    }
-
-    const boxes = createBox(filtered);
-    boxes.forEach(box => graph.appendChild(box));
+  const boxes = generateCountryBoxes(matchedCountries);
+  boxes.forEach(box => countryListContainer.appendChild(box));
 });

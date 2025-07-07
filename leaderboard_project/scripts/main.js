@@ -12,6 +12,7 @@ class Person {
     if (this.score >= 5) this.score -= 5;
   }
 }
+
 let fName;
 let fName_input = document.querySelector(".fName");
 fName_input.addEventListener("input", (e) => {
@@ -40,11 +41,36 @@ score_input.addEventListener("input", (e) => {
 let people = [];
 let add_player = document.querySelector(".submit");
 add_player.addEventListener("click", () => {
-  if (fName && lName && country && score) {
+  if (isDuplicatePlayer(fName, lName, country)) {
+    let el = document.createElement("h3");
+    el.setAttribute("class", "fields");
+    el.innerText = "Duplicate Player";
+    let node = document.querySelector(".fieldAlert");
+    node.innerHTML = " ";
+    node.prepend(el);
+    return;
+  } else if (
+    isOnlyLetters(fName) &&
+    isOnlyLetters(lName) &&
+    isOnlyLetters(country) &&
+    score
+  ) {
     people.push(new Person(fName, lName, country, score));
     let node1 = document.querySelector(".fieldAlert");
     node1.innerHTML = " ";
     display();
+  } else if (
+    !isOnlyLetters(fName) ||
+    !isOnlyLetters(lName) ||
+    !isOnlyLetters(country)
+  ) {
+    let el = document.createElement("h3");
+    el.setAttribute("class", "fields");
+    el.innerText =
+      "First name, last name and country should only contain letters";
+    let node = document.querySelector(".fieldAlert");
+    node.innerHTML = " ";
+    node.prepend(el);
   } else {
     let el = document.createElement("h3");
     el.setAttribute("class", "fields");
@@ -55,19 +81,17 @@ add_player.addEventListener("click", () => {
   }
 });
 
-function display() {
+const display = () => {
   let node = document.querySelector(".players");
   node.innerHTML = " ";
   people.forEach((i, idx) => {
     let row = document.createElement("div");
-    let p1 = document.createElement("p");
-    p1.innerText = i.fName;
-    let p2 = document.createElement("p");
-    p2.innerText = i.lName;
-    let p3 = document.createElement("p");
-    p3.innerText = i.country;
-    let p4 = document.createElement("p");
-    p4.innerText = i.score;
+    row.innerHTML = `
+      <p>${i.fName}</p>
+      <p>${i.lName}</p>
+      <p>${i.country}</p>
+      <p>${i.score}</p>
+    `;
 
     let delBtn = document.createElement("button");
     delBtn.setAttribute("class", "deleteBtn");
@@ -95,7 +119,27 @@ function display() {
       display();
     });
 
-    row.append(p1, p2, p3, p4, delBtn, addBtn, subBtn);
+    row.append(delBtn, addBtn, subBtn);
     node.append(row);
   });
-}
+};
+
+const isOnlyLetters = (str) => {
+  for (let i = 0; i < str.length; i++) {
+    const code = str.charCodeAt(i);
+    const isUpper = code >= 65 && code <= 90;
+    const isLower = code >= 97 && code <= 122;
+    if (!(isUpper || isLower)) {
+      return false;
+    }
+  }
+  return true;
+};
+const isDuplicatePlayer = (fName, lName, country) => {
+  return people.some(
+    (p) =>
+      p.fName.toLowerCase() === fName.toLowerCase() &&
+      p.lName.toLowerCase() === lName.toLowerCase() &&
+      p.country.toLowerCase() === country.toLowerCase()
+  );
+};
